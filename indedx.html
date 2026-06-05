@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>비밀번호 페이지</title>
+
+<style>
+    body{
+        font-family: Arial, sans-serif;
+        background:#f4f4f4;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        height:100vh;
+        margin:0;
+    }
+
+    .box{
+        background:white;
+        padding:40px;
+        border-radius:12px;
+        box-shadow:0 0 10px rgba(0,0,0,0.1);
+        text-align:center;
+        width:320px;
+    }
+
+    input{
+        width:90%;
+        padding:10px;
+        margin-top:10px;
+        font-size:16px;
+    }
+
+    button{
+        margin-top:12px;
+        padding:10px 20px;
+        font-size:16px;
+        cursor:pointer;
+        border:none;
+        border-radius:8px;
+    }
+
+    .menu-btn{
+        display:block;
+        width:100%;
+        margin-top:15px;
+        background:#4a6cf7;
+        color:white;
+    }
+
+    .hidden{
+        display:none;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <div id="loginArea">
+        <h2>비밀번호 입력</h2>
+
+        <input type="password" id="password" placeholder="비밀번호 입력">
+
+        <br>
+
+        <button onclick="checkPassword()">확인</button>
+
+        <p id="message" style="color:red;"></p>
+    </div>
+
+    <div id="secretArea" class="hidden">
+        <h2>페이지 선택</h2>
+
+        <button class="menu-btn"
+            onclick="location.href='https://example.com/heyyum'">
+            혜윰
+        </button>
+
+        <button class="menu-btn"
+            onclick="location.href='https://example.com/eden'">
+            이든
+        </button>
+
+        <button class="menu-btn"
+            onclick="location.href='https://example.com/seungjae'">
+            승재
+        </button>
+    </div>
+
+</div>
+
+<script>
+    const correctPassword = "1234";
+
+    function checkPassword(){
+
+        const input = document.getElementById("password").value;
+
+        if(input === correctPassword){
+
+            document.getElementById("loginArea").classList.add("hidden");
+            document.getElementById("secretArea").classList.remove("hidden");
+
+        }else{
+
+            document.getElementById("message").innerText =
+                "비밀번호가 틀렸습니다.";
+        }
+    }
+</script>
+
+</body>
+</html>
